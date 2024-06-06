@@ -1,6 +1,6 @@
 body{
     color: white;
-    background-image: url(/image.png);
+    background-image: url(./image.png);
     background-color: rgb(197, 197, 188);
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
