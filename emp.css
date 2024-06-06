@@ -2,7 +2,7 @@ body {
     color: white;
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
-    background-image: url(/image.png);
+    background-image: url(./image.png);
 }
 .log{
     display: flex;
