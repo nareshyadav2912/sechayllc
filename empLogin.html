@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link rel="stylesheet" href="emp.css">
+</head>
+
+<body>
+    <nav>
+        <a href="/index.html ">Home</a>
+        <a href="/team.html">Team</a>
+    </nav>
+    <form class="log">
+        <div class="login">
+            <h1>Login Here</h1>
+            <label>UserName:</label>
+            <input type="text" id="username" placeholder="Enter your username." required>
+            <label>Employee ID</label>
+            <input type="text" id="id" placeholder="Enter your employee id." required>
+            <button type="submit" onclick="login()">Login</button>
+        </div>
+    </form>
+    <script>
+        const employees = [
+            { username: "naresh", id: "0001" },
+            { username: "anand", id: "0002" },
+            { username: "hanock", id: "0003" },
+            { username: "sriram", id: "0004" },
+            { username: "abhilash", id: "0005" },
+            { username: "paras", id: "0006" },
+            { username: "devipriya", id: "0007" },
+            { username: "sirisha", id: "0008" },
+            { username: "bharath", id: "0009" }
+        ]
+        function login() {
+            const username = document.getElementById('username').value;
+            const id = document.getElementById('id').value;
+            for (let i = 0; i < employees.length; i++) {
+                if (employees[i].username === username && employees[i].id === id) {
+                    window.location.href = "team.html";
+                    return false;
+                }
+            }
+            alert("Invalid Credentials");
+            document.querySelector(".log").reset();
+            return false;
+        }
+
+    </script>
+</body>
+
+</html>

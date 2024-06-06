@@ -1,0 +1,67 @@
+body{
+    color: white;
+    background-image: url(/image.png);
+    background-color: rgb(197, 197, 188);
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+#name{
+    color: antiquewhite;
+    text-align: center;
+    margin-top: 10px;
+}
+li{
+    float: left;
+    color: white;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li a{
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 14px 14px;
+    text-decoration: none;
+}
+.one h1{
+    color: rgb(105, 197, 166);
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+div p{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    text-justify:distribute;
+}
+.two h1{
+    color: aquamarine;
+    text-align: center;
+}
+.three h1{
+    color: aquamarine;
+    text-align: center;
+}
+.three{
+    text-align: center;
+}
+.three h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.three h3 a {
+    text-decoration: none;
+    color: white;
+}
+nav{
+    text-align: left;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+}

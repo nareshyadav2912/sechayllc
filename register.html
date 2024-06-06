@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<style>
+    body {
+        color: white;
+        font-size: large;
+        font-family: 'Times New Roman', Times, serif;
+        background-image: url(/image.png);
+    }
+
+    .reg {
+        display: flex;
+        justify-content: center;
+    }
+
+    .register {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        padding: auto;
+    }
+
+    input[type=text],
+    input[type=text],
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    button {
+        width: 350px;
+        margin: 8px 2px;
+        padding: 12px 30px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: larger;
+    }
+
+    .icon {
+        display: flex;
+        margin-inline-start: 120px;
+    }
+
+    img {
+        width: 30px;
+        margin-right: 20px;
+    }
+
+    h3 {
+        align-items: center;
+        margin-left: 100px;
+    }
+
+    nav {
+        text-align: left;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        padding: 20px;
+    }
+    .ermsg1{
+        color: red;
+    }
+</style>
+
+<body>
+    <nav>
+        <a href="/index.html ">Home</a>
+        <a href="/team.html">Team</a>
+    </nav>
+    <form class="reg">
+        <div class="register">
+            <h1>Register Here</h1>
+            <label>First Name:</label>
+            <input type="text" id="fn" placeholder="Enter your FirstName." required>
+            <label>Last Name:</label>
+            <input type="text" id="ln" placeholder="Enter your LastName." required>
+            <label>Contact:</label>
+            <input type="number" id="num" placeholder="Give your contact." required>
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="Enter Valid Mail." required>
+            <span class="ermsg1" id="emerr"></span><br><br>
+            <label>Enter Password:</label>
+            <input type="password" id="pwd" placeholder="Password must be 8 characters." required>
+            <span class="ermsg1" id="pwderr"></span><br><br>
+            <label>Conform Password:</label>
+            <input type="password" id="cpwd" placeholder="Re-enter the password." required>
+            <span class="ermsg1" id="cpwderr"></span><br><br>
+            <button type="submit" onclick="register(event)">Register</button>
+            <h3 id="regist">Register with!!</h3>
+            <div class="icon">
+                <img id="gg" src="google.png" alt="google icon">
+                <img id="fb" src="facebook.png" alt="facebook icon">
+            </div>
+        </div>
+    </form>
+    <script>
+        let users = [];
+        if (localStorage.getItem("users")) {
+            users = JSON.parse(localStorage.getItem("users"));
+        }
+        function register(event) {
+            event.preventDefault();
+            const fn = document.getElementById('fn').value;
+            const ln = document.getElementById('ln').value;
+            const num = document.getElementById('num').value;
+            const email = document.getElementById('email').value;
+            const pwd = document.getElementById('pwd').value;
+            const cpwd = document.getElementById('cpwd').value;
+            const finalname = fn[0] + ln;
+            const pattern=/^[^\s@]+@[^s@]+\.[^\s@]+$/;
+            const emerr=document.getElementById('emerr');
+            const pwderr=document.getElementById('pwderr');
+            const cpwderr=document.getElementById('cpwderr');
+            if(!pattern.test(email)){
+                emerr.textContent="enter valid email";
+                //return false;
+            }else{
+                emerr.textContent=" ";
+            }
+            const pwdpattern=/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}$/;
+            if(!pwdpattern.test(pwd)){
+                pwderr.textContent="enter valid password";
+                return false;
+            }else{
+                pwderr.textContent=" ";
+            }
+            if(pwd!=cpwd){
+                cpwderr.textContent="password must match";
+                //return false;
+            }
+            if (fn === "") {
+                alert("Enter the Required Fields");
+                //return false;
+            }
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].username === finalname) {
+                    alert("Username Already Exists");
+                    //return false;
+                }
+            } 
+            users.push({ username: finalname, password: cpwd });
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Ohh!!yaa,, Registartion successfull and Your Username is: " + finalname);
+            window.location.href = "userLogin.html";
+            //document.querySelector(".reg").reset();
+            //return false;
+        }
+        var gi = document.getElementById('gg');
+        var fi = document.getElementById('fb');
+        gi.addEventListener('click', function () {
+            window.open('https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AaSxoQypE39WEfpjOiuT_Wz-wH76LK_h8amRYSRTM-QPx_rqRe0SE8H-Yc1Cz0ceJzY0ceBReVL8Lw&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-939223386%3A1716899298537243&ddm=0')
+        });
+        fi.addEventListener('click', function () {
+            window.open('https://www.facebook.com/login/')
+        });
+    </script>
+</body>
+
+</html>

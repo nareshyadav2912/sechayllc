@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+    <nav>
+        <a href="/index.html ">Home</a>
+        <a href="/team.html">Team</a>
+    </nav>
+    <div class="log">
+        <div class="login">
+            <h1>Login Here</h1>
+            <label>UserName:</label>
+            <input type="text" id="username" placeholder="Enter your username." required>
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="Enter your Password." required>
+            <button type="submit" onclick="login()">Login</button>
+            <h4><a href="forgot.html">Forgot Password?</a></h4>
+            <h2>New to Sechay? <a href="/register.html">Register Here!</a></h2>
+        </div>
+    </div>
+    <script>
+        let users = [];
+        if (localStorage.getItem("users")) {
+            users = JSON.parse(localStorage.getItem("users"));
+        }
+        console.log(users);
+        let cnt = 0;
+        let lock=false;
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            for (let i = 0; i < users.length; i++) {
+                if (lock!=true && users[i].username == username && users[i].password == password) {
+                    localStorage.setItem("loginSuccessfull", "true");
+                    window.location.href = "team.html";
+                    return false;
+                }
+            } 
+            cnt = cnt + 1;
+            if (cnt == 5) {
+                alert("It Seems You don't have account. Please register");
+                lock=true;
+                window.location.href="register.html";
+            }
+            else{
+                alert("Invalid Credentials");
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
