@@ -11,7 +11,7 @@
         color: white;
         font-size: large;
         font-family: 'Times New Roman', Times, serif;
-        background-image: url(/image.png);
+        background-image: url(./image.png);
     }
 
     .reg {
@@ -72,8 +72,8 @@
 
 <body>
     <nav>
-        <a href="/index.html ">Home</a>
-        <a href="/team.html">Team</a>
+        <a href="./index.html ">Home</a>
+        <a href="./team.html">Team</a>
     </nav>
     <form class="reg">
         <div class="register">
@@ -149,7 +149,7 @@
             users.push({ username: finalname, password: cpwd });
             localStorage.setItem("users", JSON.stringify(users));
             alert("Ohh!!yaa,, Registartion successfull and Your Username is: " + finalname);
-            window.location.href = "userLogin.html";
+            window.location.href = "./userLogin.html";
             //document.querySelector(".reg").reset();
             //return false;
         }
