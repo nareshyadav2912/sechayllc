@@ -10,7 +10,7 @@
             color: white;
             font-size: large;
             font-family: 'Times New Roman', Times, serif;
-            background-image: url(/image.png);
+            background-image: url(./image.png);
         }
 
         .forg {
@@ -55,9 +55,9 @@
 
 <body>
     <nav>
-        <a href="/index.html ">Home</a>
-        <a href="/team.html">Team</a>
-        <a href="/userLogin.html">UserLogin</a>
+        <a href="./index.html ">Home</a>
+        <a href="./team.html">Team</a>
+        <a href="./userLogin.html">UserLogin</a>
     </nav>
     <div class="forg">
         <div class="forgot">
@@ -93,7 +93,7 @@
                 localStorage.setItem("users", JSON.stringify(users));
                 umsg.textContent = " ";
                 alert("Password Updated Successfully");
-                window.location.href = "userLogin.html";
+                window.location.href = "./userLogin.html";
                 return true;
             }
             else {
